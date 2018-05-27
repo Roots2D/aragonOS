@@ -254,7 +254,7 @@ contract ACL is IACL, AragonApp, ACLHelpers {
     function _setPermission(address _entity, address _app, bytes32 _role, bytes32 _paramsHash) internal {
         permissions[permissionHash(_entity, _app, _role)] = _paramsHash;
 
-        SetPermission(_entity, _app, _role, _paramsHash != bytes32(0));
+        emit SetPermission(_entity, _app, _role, _paramsHash != bytes32(0));
     }
 
     function _saveParams(uint256[] _encodedParams) internal returns (bytes32) {
@@ -395,7 +395,7 @@ contract ACL is IACL, AragonApp, ACLHelpers {
     */
     function _setPermissionManager(address _newManager, address _app, bytes32 _role) internal {
         permissionManager[roleHash(_app, _role)] = _newManager;
-        ChangePermissionManager(_app, _role, _newManager);
+        emit ChangePermissionManager(_app, _role, _newManager);
     }
 
     function roleHash(address _where, bytes32 _what) pure internal returns (bytes32) {

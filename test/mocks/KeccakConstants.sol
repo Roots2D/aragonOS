@@ -1,9 +1,9 @@
 pragma solidity 0.4.18;
 
-import "./APMNamehash.sol";
+import "./APMNamehashWrapper.sol";
 
 
-contract KeccakConstants is APMNamehash {
+contract KeccakConstants is APMNamehashWrapper {
     // Kernel
     bytes32 constant public CORE_NAMESPACE = keccak256("core");
     bytes32 constant public APP_BASES_NAMESPACE = keccak256("base");
