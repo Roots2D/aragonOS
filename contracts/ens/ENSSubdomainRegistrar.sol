@@ -54,7 +54,7 @@ contract ENSSubdomainRegistrar is AragonApp, ENSConstants {
         ens.setResolver(node, address(0)); // remove resolver so it ends resolving
         ens.setOwner(node, address(0));
 
-        DeleteName(node, _label);
+        emit DeleteName(node, _label);
     }
 
     function pointRootNode(address _target) auth(POINT_ROOTNODE_ROLE) external {
@@ -67,7 +67,7 @@ contract ENSSubdomainRegistrar is AragonApp, ENSConstants {
 
         ens.setSubnodeOwner(rootNode, _label, _owner);
 
-        NewName(node, _label);
+        emit NewName(node, _label);
     }
 
     function _pointToResolverAndResolve(bytes32 _node, address _target) internal {

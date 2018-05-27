@@ -32,7 +32,7 @@ contract CallsScript is IEVMScriptExecutor {
 
             // logged before execution to ensure event ordering in receipt
             // if failed entire execution is reverted regardless
-            LogScriptCall(msg.sender, address(this), contractAddress);
+            emit LogScriptCall(msg.sender, address(this), contractAddress);
 
             uint256 calldataLength = uint256(_script.uint32At(location + 0x14));
             uint256 startOffset = location + 0x14 + 0x04;

@@ -62,7 +62,7 @@ contract APMRegistryFactory is APMRegistryConstants {
         // APMRegistry controls Repos
         dao.setApp(namespace, keccak256(node, keccak256(REPO_APP_NAME)), repoBase);
 
-        DeployAPM(node, apm);
+        emit DeployAPM(node, apm);
 
         // Grant permissions needed for APM on ENSSubdomainRegistrar
         acl.createPermission(apm, ensSub, ensSub.CREATE_NAME_ROLE(), _root);

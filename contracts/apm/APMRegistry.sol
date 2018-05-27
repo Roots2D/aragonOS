@@ -91,7 +91,7 @@ contract APMRegistry is AragonApp, AppProxyFactory, APMRegistryConstants {
         // This will fail if repo name already exists
         bytes32 node = registrar.createNameAndPoint(keccak256(_name), repo);
 
-        NewRepo(node, _name, repo);
+        emit NewRepo(node, _name, repo);
 
         return repo;
     }

@@ -50,7 +50,7 @@ contract Repo is AragonApp {
         versionIdForSemantic[semanticVersionHash(_newSemanticVersion)] = versionId;
         latestVersionIdForContract[contractAddress] = versionId;
 
-        NewVersion(versionId, _newSemanticVersion);
+        emit NewVersion(versionId, _newSemanticVersion);
     }
 
     function getLatest() public view returns (uint16[3] semanticVersion, address contractAddress, bytes contentURI) {

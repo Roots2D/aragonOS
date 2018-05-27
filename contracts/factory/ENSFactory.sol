@@ -26,6 +26,6 @@ contract ENSFactory is ENSConstants {
         ens.setOwner(ETH_TLD_NODE, _owner);
         ens.setOwner(ENS_ROOT, _owner);
 
-        DeployENS(ens);
+        emit DeployENS(ens);
     }
 }
